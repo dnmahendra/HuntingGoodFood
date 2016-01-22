@@ -1,0 +1,32 @@
+
+
+
+<ul class="dish_types">
+	<% @dish_types.each do |t| %>
+		<li><a href="/?dish_type_id=<%= t.id %>"> <%= t.name %></a></li>
+	<% end %>
+		<li><a href="/">all</a></li>
+</ul>
+ 
+<div class="wrapper">
+	<% @dishes.each do |d| %>
+	<div class="card">
+		<div class="dish">
+		<a href="/dishes/<%= d.id %>"><p><%= d.name %></p></a>
+		<img src="<%= d.image_url %>" alt="">
+		</div>
+		<form action="/likes/<%= d.id %>" method="post">
+			<div class="likes">
+			<p>Likes: <%= d.likes.count %></p>
+			<button><%= liked(d.id) %></button>
+			<input type="hidden" name="dish_id" value="<%= d.id %>">
+			</div>
+		</form>
+		<div class="venue">
+			<p><%= d.dish_type.name if d.dish_type %></p>
+			<h4>@ <%= d.venue %></h4>
+		</div>
+
+	</div>
+	<% end %>
+</div>

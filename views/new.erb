@@ -1,0 +1,34 @@
+
+<%= @dish.errors.full_messages %>
+
+
+<form action="/dishes" method="post">
+<p>
+	<label for="", name="">name</label>
+	<input type="text", name = 'name'>
+</p>
+
+<p>
+	<label for="">image url</label>
+	<input type="text", name = 'image_url'>
+</p>
+
+<p>
+	<label for="">venue</label>
+	<input type="text" name = 'venue'>
+</p>
+
+<p>
+	<label for="">dish_type</label>
+	<select name="dish_type_id">
+		<% @dish_types.each do |t| %>
+			<option value="<%= t['id'] %>">
+			<%= t['name'] %>
+			</option>
+		<% end %>
+	</select>
+</p>
+
+<button>Create</button>
+</form>
+

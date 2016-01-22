@@ -1,0 +1,6 @@
+<ul class="types">
+	<% @dish_types.each do |t| %>
+		<li><a href="/?dish_type_id=<%= t.id %>"> <%= t.name %></a></li>
+	<% end %>
+		<li><a href="/">All</a></li>
+</ul>
